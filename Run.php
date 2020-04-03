@@ -13,8 +13,11 @@ require "Menu.php";
 
  $selection = readline("Enter input here: ");
  while($selection<=5  and $selection!= 0 ){
+
     $start = new Menu;
-    $start -> start($selection);
+    $start -> start($selection,$formulars);
+
+
     echo "===========================================\n";
     echo "Hello, WELCOME TO MY FORMULAR APP\n";
     echo "===========================================\n";

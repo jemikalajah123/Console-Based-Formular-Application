@@ -1,20 +1,25 @@
 <?php
+
 class Functions{
 
     public static $formulars = array();
 
+
     public function createFormular() {
-        $key= readline("please enter the name of the formular here: ");
+
+        $key= readline("please enter the name of formular here: ");
         $value= readline("please enter the formular here: ");
+
         self::$formulars += [$key => $value];
-        print_r(self::$formulars); 
+        print_r (self::$formulars);
+        
     }
 
     public function listFormular(){
         $formularsArrayObject = new ArrayObject(self::$formulars);
-        $copy = $formularsArrayObject->getArrayCopy();
-        print_r($copy);
-
+        self::$formulars = $formularsArrayObject->getArrayCopy();
+        print_r (self::$formulars);
+        
     }
    
     public function removeFormular(){
@@ -23,7 +28,7 @@ class Functions{
         if (array_key_exists($search,self::$formulars))
         {
             self::$formulars = array_diff_key(self::$formulars,  array_flip((array) [$search]));
-            print_r(self::$formulars); 
+            print_r (self::$formulars);
         }
         else
         {
@@ -43,8 +48,8 @@ class Functions{
             print_r($value."\n");
             $a= readline("please value a: \n");
             $b= readline("please value b: \n");
-            $value = eval('return '.$value.';');
-            echo $value;
+            self::$formulars = eval('return '.$value.';');
+            print_r (self::$formulars);
         }
         else
         {
