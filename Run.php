@@ -15,7 +15,7 @@ require "Menu.php";
  while($selection<=5  and $selection!= 0 ){
 
     $start = new Menu;
-    $start -> start($selection,$formulars);
+    $start -> start($selection);
 
 
     echo "===========================================\n";
