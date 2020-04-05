@@ -2,60 +2,32 @@
 
 class Functions{
 
-    public static $formulars = array();
+    static $formulars = array();
 
-
-    public function createFormular() {
-
-        $key= readline("please enter the name of formular here: ");
-        $value= readline("please enter the formular here: ");
-
+    public function createFormular($key,$value) {
         self::$formulars += [$key => $value];
-        print_r (self::$formulars);
-        
+       
     }
 
     public function listFormular(){
         $formularsArrayObject = new ArrayObject(self::$formulars);
         self::$formulars = $formularsArrayObject->getArrayCopy();
-        print_r (self::$formulars);
-        
+      
     }
    
-    public function removeFormular(){
-
-        $search= readline("please enter the formular here: ");
-        if (array_key_exists($search,self::$formulars))
+    public function removeFormular($key){
+        if (array_key_exists($key,self::$formulars))
         {
-            self::$formulars = array_diff_key(self::$formulars,  array_flip((array) [$search]));
-            print_r (self::$formulars);
+            self::$formulars = array_diff_key(self::$formulars,  array_flip((array) [$key]));
         }
-        else
-        {
-            echo "This formular does not exist...\n";
-        }
-
     }
-    public function calculateWithFormular(){
-        $formularsArrayObject = new ArrayObject(self::$formulars);
-        $copy = $formularsArrayObject->getArrayCopy();
-        print_r($copy);
-        $search= readline("please enter the formular you desire to work with, here: \n");
+    public function calculateWithFormular($Key){
         if (array_key_exists($search,self::$formulars))
         {
             $result = array_flip(self::$formulars);
             $value = array_search($search, $result,true); 
-            print_r($value."\n");
-            $a= readline("please value a: \n");
-            $b= readline("please value b: \n");
-            self::$formulars = eval('return '.$value.';');
-            print_r (self::$formulars);
+  
         }
-        else
-        {
-            echo "This formular does not exist...\n";
-        }
-
     }
     public function quit(){
         exit();
