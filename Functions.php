@@ -3,7 +3,7 @@
 class Functions{
 
     static $formulars = array();
-
+    
     public function createFormular($key,$value) {
         self::$formulars += [$key => $value];
        
@@ -21,6 +21,7 @@ class Functions{
             self::$formulars = array_diff_key(self::$formulars,  array_flip((array) [$key]));
         }
     }
+
     public function calculateWithFormular($Key){
         if (array_key_exists($search,self::$formulars))
         {
@@ -29,6 +30,7 @@ class Functions{
   
         }
     }
+
     public function quit(){
         exit();
     }

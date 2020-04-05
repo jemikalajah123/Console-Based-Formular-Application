@@ -9,19 +9,23 @@ class Menu extends Functions{
                 $list = new Functions();
                 $list->createFormular($key,$value);   
             }
+
             elseif($selection == 2){
                 $list = new Functions();
                 $list->listFormular();
             }
+
             elseif($selection == 3){
                 $list = new Functions();
                 $list->removeFormular($key);
 
             }
+
             elseif($selection == 4){
                 $list = new Functions();
                 $list->calculateWithFormular($key);
             }
+            
             elseif($selection == 5){
                 $list = new Functions();
                 $list->quit();
