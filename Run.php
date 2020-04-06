@@ -28,18 +28,16 @@ function userMenu(){
     }
     elseif($selection == 3){
         
-        $Key= readline("please enter the formular name here: ");
+        $key= readline("please enter the formular name here: ");
         $start = new Menu;
         $start -> start($selection,$key,$value);
     }
     elseif($selection == 4){
         
-        $Key= readline("please enter the name of formular here: ");
+        $key= readline("please enter the name of formular here: ");
         $start = new Menu;
         $start -> start($selection,$key,$value);
         print_r($value."\n");
-        $a= readline("please value a: \n");
-        $b= readline("please value b: \n");
         Functions::$formulars = eval('return '.$value.';');
     }
     if ($selection == 5){
@@ -47,17 +45,19 @@ function userMenu(){
         $start -> start($selection,$key,$value);
     }
     print_r (Functions::$formulars);
+
+    while ($selection != 1 or $selection != 2 or $selection != 3 or $selection != 4 or $selection != 5){
+
+        echo "This input is not supported\n";
+        echo "input must be valid\n";
+        userMenu();
+     };
    
 userMenu();
  }
 }
+
 userMenu();
 
-while ($selection != 1 or $selection != 2 or $selection != 3 or $selection != 4 or $selection != 5){
-
-    echo "This input is not supported\n";
-    echo "input must be valid\n";
-    userMenu();
- };
 
 ?>
