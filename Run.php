@@ -37,14 +37,18 @@ function userMenu(){
         $key= readline("please enter the name of formular here: ");
         $start = new Menu;
         $start -> start($selection,$key,$value);
-        print_r($value."\n");
-        Functions::$formulars = eval('return '.$value.';');
+
     }
     if ($selection == 5){
         $start = new Menu;
         $start -> start($selection,$key,$value);
     }
+    while($selection == 4){
+        
+    }
     print_r (Functions::$formulars);
+
+    userMenu();
 
     while ($selection != 1 or $selection != 2 or $selection != 3 or $selection != 4 or $selection != 5){
 
@@ -53,7 +57,6 @@ function userMenu(){
         userMenu();
      };
    
-userMenu();
  }
 }
 
