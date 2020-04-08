@@ -43,9 +43,10 @@ function userMenu(){
         $start = new Menu;
         $start -> start($selection,$key,$value);
     }
-    while($selection == 4){
-        
-    }
+    echo "The value below is changed after a particular calculation is done! \n";
+    echo".......................................\n";
+    echo "The new value calculated is: ".Functions::$calculated."\n";
+    echo".......................................\n";
     print_r (Functions::$formulars);
 
     userMenu();

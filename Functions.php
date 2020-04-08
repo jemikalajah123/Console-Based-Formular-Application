@@ -3,6 +3,7 @@
 class Functions{
 
     static $formulars = array();
+    static $calculated;
     
     public function createFormular($key,$value) {
         self::$formulars += [$key => $value];
@@ -31,8 +32,7 @@ class Functions{
                         $value[$i] = intval($value[$i]);
                     }
                 }
-            $calculated = eval('return '.$value.';');
-            echo $calculated;
+           self::$calculated = eval('return '.$value.';');
         }}
 
     public function quit(){
