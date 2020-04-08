@@ -12,7 +12,7 @@ class Menu extends Functions{
 
             elseif($selection == 2){
                 $list = new Functions();
-                $list->listFormular();
+                $list->listFormular($key);
             }
 
             elseif($selection == 3){
@@ -23,7 +23,7 @@ class Menu extends Functions{
 
             elseif($selection == 4){
                 $list = new Functions();
-                $list->calculateWithFormular($key);
+                $list->calculateWithFormular($value);
             }
             
             elseif($selection == 5){

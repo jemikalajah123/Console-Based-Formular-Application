@@ -23,6 +23,7 @@ function userMenu(){
         $start -> start($selection,$key,$value);
     }
     elseif($selection == 2){
+        $key= new ArrayObject(Functions::$formulars);
         $start = new Menu;
         $start -> start($selection,$key,$value);
     }
@@ -33,8 +34,16 @@ function userMenu(){
         $start -> start($selection,$key,$value);
     }
     elseif($selection == 4){
-        
         $key= readline("please enter the name of formular here: ");
+        if (array_key_exists($key, Functions::$formulars)){ 
+            $result = array_flip(Functions::$formulars);
+            $value = array_search($key, $result,true); 
+            for($i = 0; $i < strlen($value);$i++){
+                if(ctype_alpha($value[$i])){
+                    $value[$i] = readline("enter the variable $value[$i] : "."\n");
+                    $value[$i] = intval($value[$i]);
+                }
+            }}
         $start = new Menu;
         $start -> start($selection,$key,$value);
 
@@ -43,7 +52,7 @@ function userMenu(){
         $start = new Menu;
         $start -> start($selection,$key,$value);
     }
-    echo "The value below is changed after a particular calculation is done! \n";
+    echo "The value below is changed after a particular calculation is done!\n";
     echo".......................................\n";
     echo "The new value calculated is: ".Functions::$calculated."\n";
     echo".......................................\n";
@@ -54,7 +63,7 @@ function userMenu(){
     while ($selection != 1 or $selection != 2 or $selection != 3 or $selection != 4 or $selection != 5){
 
         echo "This input is not supported\n";
-        echo "input must be valid\n";
+        echo "input must be valid digit\n";
         userMenu();
      };
    

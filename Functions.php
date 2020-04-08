@@ -10,9 +10,9 @@ class Functions{
        
     }
 
-    public function listFormular(){
-        $formularsArrayObject = new ArrayObject(self::$formulars);
-        self::$formulars = $formularsArrayObject->getArrayCopy();
+    public function listFormular($key){
+
+        self::$formulars = $key->getArrayCopy();
       
     }
    
@@ -21,19 +21,10 @@ class Functions{
         self::$formulars = array_diff_key(self::$formulars,  array_flip((array) [$key]));
     }
 
-    public function calculateWithFormular($key){
+    public function calculateWithFormular($value){
 
-            if (array_key_exists($key, self::$formulars)){ 
-                $result = array_flip(self::$formulars);
-                $value = array_search($key, $result,true); 
-                for($i = 0; $i < strlen($value);$i++){
-                    if(ctype_alpha($value[$i])){
-                        $value[$i] = readline("enter the variable $value[$i] : "."\n");
-                        $value[$i] = intval($value[$i]);
-                    }
-                }
            self::$calculated = eval('return '.$value.';');
-        }}
+        }
 
     public function quit(){
         exit();
